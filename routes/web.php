@@ -98,14 +98,14 @@ Route::post('/api/mpesa/callback', [MpesaCallbackController::class, 'callback'])
      ->withoutMiddleware([\Illuminate\Foundation\Http\Middleware\VerifyCsrfToken::class]);
 
 
-Route::get('/env-check', function() {
-    return [
-        'MPESA_CONSUMER_KEY' => env('MPESA_CONSUMER_KEY'),
-        'MPESA_CONSUMER_SECRET' => env('MPESA_CONSUMER_SECRET'),
-        'APP_KEY' => env('APP_KEY'),
-    ];
-});
+// Route::get('/env-check', function() {
+//     return [
+//         'MPESA_CONSUMER_KEY' => env('MPESA_CONSUMER_KEY'),
+//         'MPESA_CONSUMER_SECRET' => env('MPESA_CONSUMER_SECRET'),
+//         'APP_KEY' => env('APP_KEY'),
+//     ];
+// });
 
-Route::get('/app-key-test', function() {
-    return env('APP_KEY');
-});
+// Route::get('/app-key-test', function() {
+//     return env('APP_KEY');
+// });
