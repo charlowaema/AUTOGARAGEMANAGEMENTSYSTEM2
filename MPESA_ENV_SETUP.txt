@@ -1,0 +1,37 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# M-PESA DARAJA API CREDENTIALS
+# Add these lines to your Laravel .env file
+# Get credentials from: https://developer.safaricom.co.ke
+# ─────────────────────────────────────────────────────────────────────────────
+
+MPESA_ENV=sandbox
+# Change to "production" when going live
+
+MPESA_CONSUMER_KEY=your_consumer_key_here
+MPESA_CONSUMER_SECRET=your_consumer_secret_here
+
+MPESA_SHORTCODE=174379
+# Sandbox default. Replace with your actual Paybill or Till number
+
+MPESA_PASSKEY=bfb279f9aa9bdbcf158e97dd71a467cd2e0c893059b10f78e6b72ada1ed2c919
+# Sandbox default passkey. Replace with your actual Lipa Na M-Pesa passkey
+
+MPESA_TRANSACTION_TYPE=CustomerPayBillOnline
+# Use CustomerBuyGoodsOnline for Till Number
+
+MPESA_CALLBACK_URL=https://yourdomain.com/api/mpesa/callback
+# MUST be a publicly accessible HTTPS URL
+# For local testing use ngrok: ngrok http 8000
+# Then set: MPESA_CALLBACK_URL=https://xxxx.ngrok.io/api/mpesa/callback
+
+# ─────────────────────────────────────────────────────────────────────────────
+# STEPS TO GO LIVE WITH M-PESA
+# ─────────────────────────────────────────────────────────────────────────────
+# 1. Register at https://developer.safaricom.co.ke
+# 2. Create an app and get Consumer Key + Secret
+# 3. Get your Lipa Na M-Pesa shortcode and passkey from Safaricom
+# 4. Set MPESA_ENV=production
+# 5. Set MPESA_CALLBACK_URL to your live HTTPS domain
+# 6. Update all credentials above
+# 7. Run: php artisan config:cache
+# ─────────────────────────────────────────────────────────────────────────────
