@@ -92,6 +92,12 @@ Route::middleware('auth')->group(function () {
     });
 });
 
+// ── M-Pesa Daraja Callback (no auth, no CSRF) ─────────────────────────────────
+Route::post('/api/mpesa/callback', [MpesaCallbackController::class, 'callback'])
+     ->name('mpesa.callback')
+     ->withoutMiddleware([\Illuminate\Foundation\Http\Middleware\VerifyCsrfToken::class]);
+
+
 Route::get('/env-check', function() {
     return [
         'MPESA_CONSUMER_KEY' => env('MPESA_CONSUMER_KEY'),
@@ -100,7 +106,6 @@ Route::get('/env-check', function() {
     ];
 });
 
-// ── M-Pesa Daraja Callback (no auth, no CSRF) ─────────────────────────────────
-Route::post('/api/mpesa/callback', [MpesaCallbackController::class, 'callback'])
-     ->name('mpesa.callback')
-     ->withoutMiddleware([\Illuminate\Foundation\Http\Middleware\VerifyCsrfToken::class]);
+Route::get('/app-key-test', function() {
+    return env('APP_KEY');
+});
