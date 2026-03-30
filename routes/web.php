@@ -92,6 +92,14 @@ Route::middleware('auth')->group(function () {
     });
 });
 
+Route::get('/env-check', function() {
+    return [
+        'MPESA_CONSUMER_KEY' => env('MPESA_CONSUMER_KEY'),
+        'MPESA_CONSUMER_SECRET' => env('MPESA_CONSUMER_SECRET'),
+        'APP_KEY' => env('APP_KEY'),
+    ];
+});
+
 // ── M-Pesa Daraja Callback (no auth, no CSRF) ─────────────────────────────────
 Route::post('/api/mpesa/callback', [MpesaCallbackController::class, 'callback'])
      ->name('mpesa.callback')
